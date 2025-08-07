@@ -1,0 +1,57 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Backend Dev Server",
+            "type": "shell",
+            "command": "npm run dev",
+            "group": "build",
+            "isBackground": true,
+            "options": {
+                "cwd": "${workspaceFolder}/backend"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Frontend Dev Server",
+            "type": "shell",
+            "command": "npm run dev",
+            "group": "build",
+            "isBackground": true,
+            "options": {
+                "cwd": "${workspaceFolder}/frontend"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Start Both Servers",
+            "dependsOrder": "parallel",
+            "dependsOn": [
+                "Backend Dev Server",
+                "Frontend Dev Server"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "Install Backend Dependencies",
+            "type": "shell",
+            "command": "npm install",
+            "group": "build",
+            "options": {
+                "cwd": "${workspaceFolder}/backend"
+            }
+        },
+        {
+            "label": "Install Frontend Dependencies",
+            "type": "shell",
+            "command": "npm install",
+            "group": "build",
+            "options": {
+                "cwd": "${workspaceFolder}/frontend"
+            }
+        }
+    ]
+}
